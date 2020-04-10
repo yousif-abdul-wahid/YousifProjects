@@ -1,0 +1,58 @@
+//Yousif Abdul Wahid
+
+import java.util.Scanner;
+public class primeNumberCalculator {
+
+	public static void main(String[] args) {
+		boolean isPrime;
+		int max = 0; // we only want to print the first 50 prime numbers
+		Scanner scnr = new Scanner(System.in);
+		int[] primeNumbers= new int[50];
+		
+		for(int i = 2, j = 0; i < 500 && j < 50; ++i) {
+			isPrime = isPrime(i);
+			if(isPrime) {
+				max += 1;
+				if(max == 51)
+					break;
+				primeNumbers[j] = i;
+				++j;
+			}
+
+			if(max == 50)
+				break;
+		}
+		
+		print(primeNumbers);
+		
+	}
+
+	public static boolean isPrime(int num){
+		int numDivisible = 0; //this is how many times we could divide without remainder
+		for(int i = 2; i <= num; ++i) {
+			if(num % i != 0)
+				continue;
+			else
+				numDivisible += 1;
+		}
+		if(numDivisible == 1)
+			return true;
+		else return false;
+	}
+	
+	public static void print(int[] primeNumbers) {
+		for(int i= 1; i < 51; ++i) {
+			
+			System.out.print(primeNumbers[i-1] + " ");
+			if(i != 0 && i % 10 == 0)
+				System.out.println();
+			
+	}
+
+	
+}
+	
+}
+
+
+
